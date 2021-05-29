@@ -35,6 +35,7 @@ public class gameController : MonoBehaviour
     public void recarregarLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 
     public void retornaUltimaPontuacao()
