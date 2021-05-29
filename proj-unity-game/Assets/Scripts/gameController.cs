@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class gameController : MonoBehaviour
 {
     public Text textoPontuacao;
+    public Text pontuacaoFinal;
     public Player player;
     Vector3 startPosition;
     public GameObject painelGameOver;
+
     void Start()
     {
         startPosition = player.transform.position;
@@ -26,11 +28,17 @@ public class gameController : MonoBehaviour
     public void GameOver()
     {
         painelGameOver.SetActive(true);
-        Invoke("recarregarLevel", 2);
+        pontuacaoFinal.text = textoPontuacao.text;
+        textoPontuacao.gameObject.SetActive(false);
     }
 
     public void recarregarLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void retornaUltimaPontuacao()
+    {
+        pontuacaoFinal.text = textoPontuacao.text;
     }
 }

@@ -1,7 +1,7 @@
 {
 "companyName": "DefaultCompany",
-"productName": "Game_unity",
-"productVersion": "0.2",
+"productName": "Hurry in the nightfall",
+"productVersion": "1",
 "dataUrl": "web-version.data.unityweb",
 "wasmCodeUrl": "web-version.wasm.code.unityweb",
 "wasmFrameworkUrl": "web-version.wasm.framework.unityweb",

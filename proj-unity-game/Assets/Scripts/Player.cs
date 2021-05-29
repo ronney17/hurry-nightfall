@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
 
-        if (Input.GetButtonDown("Jump") && isOnGround)
+        if ((Input.GetButtonDown("Jump") || (Input.GetKeyDown(KeyCode.UpArrow)) && isOnGround))
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             isOnGround = false;
@@ -66,22 +66,22 @@ public class Player : MonoBehaviour
             //audioPulo.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && posPlayer == 0 && isOnGround == true)
+        if ((Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)) && posPlayer == 0 && isOnGround == true))
         {
             transform.position = new Vector3(transform.position.x - moveQt, transform.position.y, transform.position.z);
             posPlayer = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && posPlayer == 0 && isOnGround == true)
+        else if ((Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)) && posPlayer == 0 && isOnGround == true))
         {
             transform.position = new Vector3(transform.position.x + moveQt, transform.position.y, transform.position.z);
             posPlayer = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && posPlayer == 1 && isOnGround == true)
+        else if ((Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)) && posPlayer == 1 && isOnGround == true))
         {
             transform.position = new Vector3(transform.position.x + moveQt, transform.position.y, transform.position.z);
             posPlayer = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.A) && posPlayer == 2 && isOnGround == true)
+        else if ((Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)) && posPlayer == 2 && isOnGround == true))
         {
             transform.position = new Vector3(transform.position.x - moveQt, transform.position.y, transform.position.z);
             posPlayer = 0;
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && isOnGround)
+        if ((Input.GetKey(KeyCode.Space) || (Input.GetKeyDown(KeyCode.UpArrow)) && isOnGround))
         {
             isOnGround = false;
         }
